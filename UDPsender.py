@@ -15,7 +15,7 @@ compiledMessage = ""
 # Create UDP socket
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
-print("Sending UDP packages. Press Ctrl+C to stop...")
+print("Sending UDP packages to:", serverName, "\nPress Ctrl+C to stop.\n")
 
 # Loop until keyboard interrupt (Ctrl+C)
 try:
