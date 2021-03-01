@@ -17,10 +17,10 @@ clientSocket = socket(AF_INET, SOCK_DGRAM)
 
 while True:
     # Increment sequence number
-    sequenceNumber + 1
+    sequenceNumber += 1
 
     # Concatenate message
-    compiledMessage = sequenceNumber + sequenceNumberEnd + streamingData + endCharacters
+    compiledMessage = str(sequenceNumber) + sequenceNumberEnd + streamingData + endCharacters
 
     # send sentence to socket; server and port number required
     # need to convert message from string to bytes for Python 3
