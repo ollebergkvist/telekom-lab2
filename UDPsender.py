@@ -37,5 +37,7 @@ try:
         print("\rCurrent package:", sequenceNumber, end='', flush=True)
 
 except KeyboardInterrupt:
+    print("Stopped.")
     # Close socket
     clientSocket.close()
+    time.sleep(1)

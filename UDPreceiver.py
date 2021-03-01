@@ -1,19 +1,22 @@
 # UDP receiver
-# Olle Bergkvist
+# Olle Bergkvist & August M Rosenqvist
 
 from socket import *
+
 serverPort = 12000
 counter = 10000
 
-# create UDP socket and bind to specified port
+# Create UDP socket and bind to specified port
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 serverSocket.bind(('', serverPort))
 
-print ("The UDP receiver is ready to recieve")
+print ("The UDP receiver is ready to receive.\n")
 
 while True:
-    # read client's message and remember client's address (IP and port)
-    counter + 1
+    print("\rCounter:", counter, end='\n', flush=True) # Debug
+
+    # Read client's message and remember client's address (IP and port)
+    counter += 1
     message, clientAddress = serverSocket.recvfrom(2048)
     message.decode()
     messageArray = message.split(",")
@@ -25,3 +28,4 @@ while True:
         print ("Correct sequence number: " + counter)
         print ("Received sequence number: " + sequenceNumber)
         print ("Data stream: " + extractedMessage)
+
