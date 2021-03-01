@@ -1,5 +1,5 @@
 # UDP sender
-# Olle Bergkvist
+# Olle Bergkvist & August M Rosenqvist
 
 from socket import *
 import time
@@ -12,22 +12,30 @@ streamingData = 'A'*1400
 endCharacters = "####"
 compiledMessage = ""
 
-# create UDP socket
+# Create UDP socket
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
-while True:
-    # Increment sequence number
-    sequenceNumber += 1
+print("Sending UDP packages. Press Ctrl+C to stop...")
 
-    # Concatenate message
-    compiledMessage = str(sequenceNumber) + sequenceNumberEnd + streamingData + endCharacters
+# Loop until keyboard interrupt (Ctrl+C)
+try:
+    while True:
+        # Increment sequence number
+        sequenceNumber += 1
 
-    # send sentence to socket; server and port number required
-    # need to convert message from string to bytes for Python 3
-    clientSocket.sendto(compiledMessage.encode(),(serverName, serverPort))
+        # Concatenate message
+        compiledMessage = str(sequenceNumber) + sequenceNumberEnd + streamingData + endCharacters
 
-    # Wait one second before sending next package
-    time.sleep(1)
+        # Send sentence to socket; server and port number required
+        # Need to convert message from string to bytes for Python 3
+        clientSocket.sendto(compiledMessage.encode(), (serverName, serverPort))
 
-# close UDP socket
-clientSocket.close()
+        # Wait one second before sending next package
+        time.sleep(1)
+
+        # Display current package ID
+        print("\rCurrent package:", sequenceNumber, end='', flush=True)
+
+except KeyboardInterrupt:
+    # Close socket
+    clientSocket.close()
