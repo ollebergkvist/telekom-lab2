@@ -30,11 +30,11 @@ try:
         # Need to convert message from string to bytes for Python 3
         clientSocket.sendto(compiledMessage.encode(), (serverName, serverPort))
 
-        # Wait one second before sending next package
-        time.sleep(1)
-
         # Display current package ID
         print("\rCurrent package:", sequenceNumber, end='', flush=True)
+
+        # Wait one second before sending next package
+        time.sleep(1)
 
 except KeyboardInterrupt:
     print("Stopped.")
