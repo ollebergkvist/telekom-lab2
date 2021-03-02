@@ -3,7 +3,6 @@
 
 from socket import *
 import time
-t_end = time.time() + 21
 
 serverName = '192.168.2.4'
 serverPort = 12000
@@ -16,10 +15,13 @@ compiledMessage = ""
 # Create UDP socket
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
+# Set timeout after 20 seconds
+end_time = time.time() + 20
+
 print("Sending UDP packages to:", serverName)
 
-# Loop over 20 seconds time
-while time.time() < t_end:
+# Loop until timeout
+while time.time() < end_time:
     # Increment sequence number
     sequenceNumber += 1
 
@@ -30,8 +32,11 @@ while time.time() < t_end:
     # Need to convert message from string to bytes for Python 3
     clientSocket.sendto(compiledMessage.encode(), (serverName, serverPort))
 
-    # Display current package ID
-    print("\rCurrent package:", sequenceNumber, end='', flush=True)
+    # Calculate time left
+    time_left = round(end_time - time.time(), 2)
 
-    # Wait one second before sending next package
-    time.sleep(0.025)
+    # Display current package ID
+    print("\rCurrent package:", sequenceNumber, "| Time left:", time_left, end='', flush=True)
+
+    # Wait x second(s) before next package
+    time.sleep(0.019)

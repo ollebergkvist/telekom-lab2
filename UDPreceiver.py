@@ -23,8 +23,6 @@ while True:
 
     if counter != sequenceNumber:
         print("Wrong package order detected!")
-        print("Correct sequence number:", counter)
-        print("Received sequence number:", sequenceNumber)
-        print("Data stream:", extractedMessage)
+        print("Expected ID:", counter, "Received ID:", sequenceNumber)
     else:
         print("Correct package received:", sequenceNumber)
