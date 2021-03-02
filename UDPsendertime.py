@@ -3,7 +3,7 @@
 
 from socket import *
 import time
-t_end = time.time() + 20
+t_end = time.time() + 21
 
 serverName = '192.168.2.4'
 serverPort = 12000
