@@ -16,7 +16,7 @@ compiledMessage = ""
 # Create UDP socket
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
-print("Sending UDP packages to:", serverName, "\nPress Ctrl+C to stop.\n")
+print("Sending UDP packages to:", serverName)
 
 # Loop over 20 seconds time
 while time.time() < t_end:
