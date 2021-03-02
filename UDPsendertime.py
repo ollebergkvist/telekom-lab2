@@ -34,4 +34,4 @@ while time.time() < t_end:
     print("\rCurrent package:", sequenceNumber, end='', flush=True)
 
     # Wait one second before sending next package
-    time.sleep(1)
+    time.sleep(0.05)
