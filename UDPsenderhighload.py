@@ -38,9 +38,5 @@ while time.time() < end_time:
     # Display current package ID
     print("\rCurrent package:", sequenceNumber, "| Time left:", time_left, end='', flush=True)
 
-<<<<<<< HEAD
-    # Wait one second before sending next package
-=======
     # Wait x second(s) before next package
->>>>>>> b928a810fade7e0d9d27653ff3e3d994a3fe04f9
     time.sleep(0.019)
