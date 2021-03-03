@@ -4,7 +4,7 @@
 from socket import *
 import time
 
-serverName = '192.168.2.4'
+serverName = "192.168.1.70"
 serverPort = 12000
 sequenceNumber = 10000
 sequenceNumberEnd = ";"
@@ -12,17 +12,17 @@ streamingData = 'A'*1400
 endCharacters = "####"
 compiledMessage = ""
 
-# create TCP socket on client to use for connecting to remote server
-clientSocket = socket(AF_INET, SOCK_STREAM)
-
-# open the TCP connection
-clientSocket.connect((serverName, serverPort))
-
 print("Sending TCP packages to:", serverName, "\nPress Ctrl+C to stop.\n")
 
 # Loop until keyboard interrupt (Ctrl+C)
 try:
     while True:
+        # Create TCP socket on client to use for connecting to remote server
+        clientSocket = socket(AF_INET, SOCK_STREAM)
+
+        # Open the TCP connection
+        clientSocket.connect((serverName, serverPort))
+
         # Increment sequence number
         sequenceNumber += 1
 
@@ -36,11 +36,12 @@ try:
         # Display current package ID
         print("\rCurrent package:", sequenceNumber, end='', flush=True)
 
+        # Close TCP connection
+        clientSocket.close()
+
         # Wait one second before sending next package
         time.sleep(1)
 
 except KeyboardInterrupt:
     print("Stopped.")
-    # Close socket
-    clientSocket.close()
     time.sleep(1)
