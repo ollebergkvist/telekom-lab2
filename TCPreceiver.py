@@ -23,7 +23,7 @@ while True:
     connectionSocket, addr = serverSocket.accept() 
 
     # read sentence of bytes from socket sent by the client
-    message = connectionSocket.recv(1024).decode()
+    message = connectionSocket.recv(2048).decode()
 
     messageArray = message.split(";")
     sequenceNumber = int(messageArray[0])
