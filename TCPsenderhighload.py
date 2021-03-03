@@ -15,7 +15,6 @@ compiledMessage = ""
 # Set timeout after 20 seconds
 end_time = time.time() + 20
 
-
 print("Sending TCP packages to:", serverName)
 
 # Loop until timeout

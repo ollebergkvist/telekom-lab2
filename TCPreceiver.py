@@ -20,7 +20,7 @@ while True:
     counter += 1
     
     # server waits for incoming requests; new socket created on return
-    connectionSocket, addr = serverSocket.accept() 
+    connectionSocket, addr = serverSocket.accept()
 
     # read sentence of bytes from socket sent by the client
     message = connectionSocket.recv(2048).decode()
