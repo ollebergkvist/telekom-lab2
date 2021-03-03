@@ -4,7 +4,7 @@
 from socket import *
 import time
 
-serverName = '192.168.2.4'
+serverName = 'localhost'
 serverPort = 12000
 sequenceNumber = 10000
 sequenceNumberEnd = ";"
