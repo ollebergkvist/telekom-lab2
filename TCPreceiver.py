@@ -6,7 +6,7 @@ from socket import *
 serverPort = 12000
 counter = 10000
 
-# Create UDP socket and bind to specified port
+# Create TCP socket and bind to specified port
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverSocket.bind(('', serverPort))
 
