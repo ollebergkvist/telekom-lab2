@@ -1,4 +1,4 @@
-# UDP receiver
+# TCP receiver
 # Olle Bergkvist & August M Rosenqvist
 
 from socket import *

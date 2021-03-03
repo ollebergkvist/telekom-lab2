@@ -1,10 +1,10 @@
-# UDP sender
+# TCP sender
 # Olle Bergkvist & August M Rosenqvist
 
 from socket import *
 import time
 
-serverName = 'localhost'
+serverName = '192.168.2.4'
 serverPort = 12000
 sequenceNumber = 10000
 sequenceNumberEnd = ";"
@@ -31,7 +31,7 @@ try:
 
         # Send sentence to socket; server and port number required
         # Need to convert message from string to bytes for Python 3
-        clientSocket.send(compiledMessage.encode(), (serverName, serverPort))
+        clientSocket.send(compiledMessage.encode())
 
         # Display current package ID
         print("\rCurrent package:", sequenceNumber, end='', flush=True)
